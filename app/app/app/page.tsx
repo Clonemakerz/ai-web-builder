@@ -27,7 +27,7 @@ export default function AIWebBuilder() {
     }
   }, [status]);
 
-  const addToHistory = useCallback((newCode) => {
+  const addToHistory = useCallback((newCode: string) => {
     const newHistory = history.slice(0, historyIndex + 1);
     newHistory.push(newCode);
     setHistory(newHistory);
@@ -42,14 +42,14 @@ export default function AIWebBuilder() {
     }
   }, [historyIndex, history]);
 
-  const redo = useCallback(() => {
+  const redo = const undo = useCallback(() => {
     if (historyIndex < history.length - 1) {
       setHistoryIndex(historyIndex + 1);
       setCode(history[historyIndex + 1]);
     }
   }, [historyIndex, history]);
 
-  const handleGenerate = useCallback(async () => {
+   const redo = useCallback(() => {
     if (!prompt.trim()) {
       setStatus({ msg: '✍️ Please enter a prompt!', type: 'error' });
       return;
